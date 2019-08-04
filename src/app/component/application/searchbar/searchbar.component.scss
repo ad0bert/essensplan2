@@ -1,0 +1,29 @@
+.search-container {
+    position: absolute;
+}
+
+.searchbox {
+    background: white;
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 21px;
+    max-width: 584px;
+    transition: none;
+    border-radius: 22px;
+    padding-left: 2em;
+    padding-right: 2em;
+    background: azure;
+}
+
+.calendar-container {
+    overflow-x: auto;
+    max-height: 40%;
+}
+
+app-date-card{
+    min-width: 12em;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
