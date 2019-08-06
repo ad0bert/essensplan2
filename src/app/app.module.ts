@@ -15,8 +15,9 @@ import { fas, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { SearchbarComponent } from './component/application/searchbar/searchbar.component';
-import { DateCardComponent } from './component/application/date-card/date-card.component';
+import { DateCardComponent } from './component/application/date-card-wrapper/date-card/date-card.component';
 import { MatCardModule } from '@angular/material/card';
+import { DateCardWrapperComponent } from './component/application/date-card-wrapper/date-card-wrapper.component';
 
 library.add(fas, faSearch, faUser);
 
@@ -26,7 +27,8 @@ library.add(fas, faSearch, faUser);
     HeaderComponent,
     FooterComponent,
     SearchbarComponent,
-    DateCardComponent
+    DateCardComponent,
+    DateCardWrapperComponent
   ],
   imports: [
     BrowserModule,

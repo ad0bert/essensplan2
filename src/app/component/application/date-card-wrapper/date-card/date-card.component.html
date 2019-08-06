@@ -1,0 +1,4 @@
+<mat-card class="mat-card-style" [ngClass]="{'selected-style': selected}">
+<p>{{dateCard.date | date}}</p>
+<p *ngFor="let dish of dateCard.dishes">dish</p>
+</mat-card>

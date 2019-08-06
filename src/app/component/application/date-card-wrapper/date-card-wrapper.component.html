@@ -1,0 +1,15 @@
+<div 
+    class="calendar-container"
+    fxFlex="100"
+    fxLayout="row"
+    fxLayoutGap="1em"
+    *ngFor="let card of dateCards; let i = index"
+    >
+    <app-date-card 
+        (click)="selectedCard = i"
+        [dateCard]="card" fxFlex
+        [selected]="selectedCard === i"
+    >
+    </app-date-card>
+
+</div>
