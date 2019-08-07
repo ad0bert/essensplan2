@@ -2,8 +2,14 @@
   &:hover {
     background: cornflowerblue;
   }
+  border-radius: 1em;
+  cursor: pointer;
 }
 
 .selected-style {
   background: cornflowerblue;
+}
+
+.today-style {
+  border-radius: 4px;
 }

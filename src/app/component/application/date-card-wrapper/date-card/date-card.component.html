@@ -1,4 +1,6 @@
-<mat-card class="mat-card-style" [ngClass]="{'selected-style': selected}">
+<mat-card 
+  class="mat-card-style"
+  [ngClass]="{'selected-style': selected, 'today-style': isToday()}">
 <p>{{dateCard.date | date}}</p>
 <p *ngFor="let dish of dateCard.dishes">dish</p>
 </mat-card>

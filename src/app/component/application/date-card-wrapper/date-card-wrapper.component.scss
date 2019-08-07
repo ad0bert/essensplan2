@@ -1,11 +1,11 @@
 .calendar-container {
     overflow-x: auto;
     max-height: 40%;
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 app-date-card {
     min-width: 12em;
-    margin-left: 1em;
-    margin-right: 1em;
     margin-bottom: 1em;
 }

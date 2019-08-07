@@ -3,9 +3,9 @@
     fxFlex="100"
     fxLayout="row"
     fxLayoutGap="1em"
-    *ngFor="let card of dateCards; let i = index"
     >
     <app-date-card 
+        *ngFor="let card of dateCards; let i = index"
         (click)="selectedCard = i"
         [dateCard]="card" fxFlex
         [selected]="selectedCard === i"
