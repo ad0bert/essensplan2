@@ -1,15 +1,19 @@
-<div 
-    class="calendar-container"
-    fxFlex="100"
-    fxLayout="row"
-    fxLayoutGap="1em"
-    >
-    <app-date-card 
-        *ngFor="let card of dateCards; let i = index"
-        (click)="selectedCard = i"
-        [dateCard]="card" fxFlex
-        [selected]="selectedCard === i"
-    >
-    </app-date-card>
+<div fxLayout="row wrap" fxLayoutAlign="center center" fxFlexFill>
+    <div fxFlex="2.5em">
+        <button mat-icon-button color="primary" (click)="fillWeekFromNow(-1)">
+            <mat-icon>arrow_back_ios</mat-icon>
+        </button>
+    </div>
 
+    <div class="calendar-container" fxFlex fxLayout="row" fxLayoutGap="1em">
+        <app-date-card *ngFor="let card of dateCards; let i = index" (click)="selectedCard = i" [dateCard]="card" fxFlex
+            [selected]="selectedCard === i">
+        </app-date-card>
+    </div>
+
+    <div fxFlex="2.5em">
+        <button mat-icon-button color="primary" (click)="fillWeekFromNow(1)">
+            <mat-icon>arrow_forward_ios</mat-icon>
+        </button>
+    </div>
 </div>

@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./colors.scss";
 
 html,
 body {
@@ -7,6 +8,14 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background: darkslateblue;
-  color: burlywood;
+  background-color: $primary-color;
+  color: $font-color;
+}
+
+h1 {
+  color: $shadow-color;
+}
+
+.mat-dialog-container {
+  background-color: $primary-color;
 }

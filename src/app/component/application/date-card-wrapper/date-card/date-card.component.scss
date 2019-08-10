@@ -1,13 +1,15 @@
+@import './../../../../../colors.scss';
+
 .mat-card-style {
   &:hover {
-    background: cornflowerblue;
+    background: $highlight-color;
   }
   border-radius: 1em;
   cursor: pointer;
 }
 
 .selected-style {
-  background: cornflowerblue;
+  background: $highlight-color;
 }
 
 .today-style {

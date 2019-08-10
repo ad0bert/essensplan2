@@ -1,0 +1,14 @@
+<div fxLayout="row wrap" fxLayoutAlign="center center" fxFlexFill>
+    <h1 class="h1-style" fxFlex="100">Login</h1>
+    <form fxFlex="100" fxLayout="row wrap" (ngSubmit)="onSubmit()">
+        <mat-form-field fxFlex="100">
+            <input matInput placeholder="E-Mail" value="">
+        </mat-form-field>
+        <mat-form-field fxFlex="100">
+            <input type="password" matInput placeholder="Password" value="">
+        </mat-form-field>
+        <div fxFlex="100">
+            <button class="login-btn" mat-raised-button>Login</button>
+        </div>
+    </form>
+</div>

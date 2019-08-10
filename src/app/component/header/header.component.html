@@ -1,6 +1,21 @@
 <div class="header-layout">
-    <span>User <fa-icon [icon]="['fas', 'user']"></fa-icon></span>
-</div>
-<div class="logo-container">
-    <img class="logo-style" src="../../../assets/essensplan.png">
+    <div class="login-layout">
+        <div *ngIf="!isUserLoggedIn()">
+            <button class="no-background" mat-button (click)="user('login')">
+                <span>Login</span>
+            </button>
+            <span>|</span>
+            <button class="no-background" mat-button (click)="user('register')">
+                <span>Register</span>
+            </button>
+        </div>
+        <div *ngIf="isUserLoggedIn()">
+            <button class="no-background" mat-button (click)="user('user')">
+                <span>UserName <fa-icon [icon]="['fas', 'user']"></fa-icon></span>
+            </button>
+        </div>
+    </div>
+    <div class="logo-container">
+        <img class="logo-style" src="../../../assets/essensplan.png">
+    </div>
 </div>
