@@ -22,7 +22,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './component/application/user/login/login.component';
 import { RegisterComponent } from './component/application/user/register/register.component';
 import { UserComponent } from './component/application/user/user.component';
-import { AccountComponent } from './component/application/account/account.component';
+import { AccountComponent } from './component/application/user/account/account.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 library.add(fas, faSearch, faUser, faAngleLeft, faAngleRight);
 
@@ -55,7 +56,9 @@ library.add(fas, faSearch, faUser, faAngleLeft, faAngleRight);
   entryComponents: [
     UserComponent
   ],
-  providers: [],
+  providers: [{
+    provide: LocationStrategy, useClass: HashLocationStrategy
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
