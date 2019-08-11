@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-register',
@@ -6,14 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
+  
+  @Output()
+  changeType = new EventEmitter<string>();
+  
   constructor() { }
 
   ngOnInit() {
   }
 
-  onSubmit(): void {
-    // todo
+  onSubmit(event: Event): void {
+    event.preventDefault();
   }
 
 }

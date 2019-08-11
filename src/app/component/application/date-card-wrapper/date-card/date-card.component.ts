@@ -24,4 +24,8 @@ export class DateCardComponent implements OnInit {
     return this.dateCard.date.getTime() === DateUtils.getToday().getTime();
   }
 
+  addDish(): void {
+    this.dateCard.dishes.push("cat");
+  }
+
 }

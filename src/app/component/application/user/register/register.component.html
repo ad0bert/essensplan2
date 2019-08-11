@@ -1,6 +1,6 @@
 <div fxLayout="row wrap" fxLayoutAlign="center center" fxFlexFill>
     <h1 class="h1-style" fxFlex="100">Register</h1>
-    <form fxFlex="100" fxLayout="row wrap" (ngSubmit)="onSubmit()">
+    <form fxFlex="100" fxLayout="row wrap" (submit)="onSubmit($event)">
         <mat-form-field fxFlex="100">
             <input matInput placeholder="Username">
         </mat-form-field>
@@ -11,6 +11,9 @@
             <input type="password" matInput placeholder="Password">
         </mat-form-field>
         <div fxFlex="100">
+            <div fxFlex fxLayoutAlign="left end">
+                <a class="change-ref" (click)="changeType.emit('login')">Already have an account?</a>
+            </div>
             <button class="register-btn" mat-raised-button>Register</button>
         </div>
     </form>

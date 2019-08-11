@@ -17,4 +17,7 @@ export class UserComponent implements OnInit {
   ngOnInit() {
   }
 
+  onChangeType(type: string) {
+    this.type = type;
+  }
 }

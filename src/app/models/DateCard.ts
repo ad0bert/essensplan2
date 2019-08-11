@@ -1,4 +1,4 @@
 export class DateCard {
     date: Date;
-    dishes: String[]; 
+    dishes: String[] = [];
 }

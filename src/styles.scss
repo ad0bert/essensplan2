@@ -12,15 +12,14 @@ body {
   color: $font-color;
 }
 
-h1 {
-  color: $shadow-color;
-}
-
 .mat-dialog-container {
-  background-color: $primary-color;
+  background-color: $card-color;
+  color: $font-color;
 }
 
-
+.mat-button-focus-overlay {
+  background-color: transparent !important;
+}
 
 .cdk-overlay-pane {
   overflow: auto;

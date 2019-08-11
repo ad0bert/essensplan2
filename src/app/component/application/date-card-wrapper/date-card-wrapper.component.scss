@@ -1,6 +1,12 @@
+.date-card-wrapper {
+    height: 100%;
+    position: absolute;
+    overflow: auto;
+}
+
 .calendar-container {
-    overflow-x: auto;
     max-height: 40%;
+    overflow-x: auto;
 }
 
 app-date-card {

@@ -1,6 +1,21 @@
-<mat-card 
-  class="mat-card-style"
+<mat-card fxFlex fxLayout="row wrap" fxLayoutAlign="center center" class="mat-card-style"
   [ngClass]="{'selected-style': selected, 'today-style': isToday()}">
-<p>{{dateCard.date | date}}</p>
-<p *ngFor="let dish of dateCard.dishes">dish</p>
+  <div fxFlex="100" class="date-container">
+    <span>
+      {{dateCard.date | date:'fullDate'}}
+    </span>
+    
+  </div>
+  <mat-divider></mat-divider>
+  <div fxFlex="100" fxLayout="row wrap" class="dishes-container">
+    <div fxFlex="100" class="dish-container" *ngFor="let dish of dateCard.dishes">{{dish}}</div>
+  </div>
+
+  <mat-divider></mat-divider>
+  <div fxFlex fxLayoutAlign="center end" class="card-button-wrapper">
+
+    <button mat-icon-button class="card-button" (click)="addDish()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
 </mat-card>

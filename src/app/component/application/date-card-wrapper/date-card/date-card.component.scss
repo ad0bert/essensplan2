@@ -6,6 +6,12 @@
   }
   border-radius: 1em;
   cursor: pointer;
+  background-color: $card-color;
+}
+
+.date-container {
+  margin-bottom: 0.4em;
+  color: $font-color;
 }
 
 .selected-style {
@@ -14,4 +20,31 @@
 
 .today-style {
   border-radius: 4px;
+}
+
+.dishes-container {
+  max-height: 5em;
+  min-height: 5em;
+  overflow-x: auto;
+}
+
+.dish-container {
+  &:hover {
+    background: $primary-color;
+  }
+}
+
+.card-button-wrapper {
+  margin-bottom: -0.9em !important;
+}
+
+.card-button {
+  &:hover {
+    background: $primary-color;
+  }
+  color: $font-color;
+}
+
+mat-divider {
+  position: relative !important;
 }

@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatDialogModule } from '@angular/material'
+import { MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatDialogModule, MatDividerModule } from '@angular/material'
 
 import { FlexLayoutModule } from '@angular/flex-layout'
 
@@ -51,6 +51,7 @@ library.add(fas, faSearch, faUser, faAngleLeft, faAngleRight);
     FlexLayoutModule,
     FontAwesomeModule,
     MatCardModule,
+    MatDividerModule,
     AppRoutingModule
   ],
   entryComponents: [
