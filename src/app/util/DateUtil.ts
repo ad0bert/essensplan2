@@ -1,6 +1,4 @@
 export default class DateUtils {
-    static DAYS = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
-
     static getToday(): Date {
         const date = new Date();
         date.setHours(0, 0, 0, 0);

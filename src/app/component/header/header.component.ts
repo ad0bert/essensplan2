@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { UserComponent } from '../application/user/user.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ import { UserComponent } from '../application/user/user.component';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private router: Router) { }
 
   ngOnInit() {
   }
@@ -32,6 +33,10 @@ export class HeaderComponent implements OnInit {
 
   isUserLoggedIn(): boolean {
     return false;
+  }
+
+  toDashboard(): void {
+    this.router.navigate(['/dashboard']);
   }
 
 }
