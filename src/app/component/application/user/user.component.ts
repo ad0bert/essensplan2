@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-user',
@@ -10,7 +10,10 @@ export class UserComponent implements OnInit {
 
   type: string;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: string) {
+  constructor(
+    private dialogRef: MatDialogRef<UserComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: string
+  ) {
     this.type = data;
   }
 
@@ -20,4 +23,11 @@ export class UserComponent implements OnInit {
   onChangeType(type: string) {
     this.type = type;
   }
+
+  onDialogClose(doClose: boolean) {
+    if (doClose) {
+      this.dialogRef.close();
+    }
+  }
+
 }

@@ -24,6 +24,8 @@ import { RegisterComponent } from './component/application/user/register/registe
 import { UserComponent } from './component/application/user/user.component';
 import { AccountComponent } from './component/application/user/account/account.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 library.add(fas, faSearch, faUser, faAngleLeft, faAngleRight);
 
@@ -52,7 +54,10 @@ library.add(fas, faSearch, faUser, faAngleLeft, faAngleRight);
     FontAwesomeModule,
     MatCardModule,
     MatDividerModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   entryComponents: [
     UserComponent

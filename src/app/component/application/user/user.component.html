@@ -1,3 +1,11 @@
-<app-login *ngIf="type === 'login'" (changeType)="onChangeType($event)"></app-login>
-<app-register *ngIf="type === 'register'" (changeType)="onChangeType($event)"></app-register>
+<app-login
+    *ngIf="type === 'login'"
+    (changeType)="onChangeType($event)"
+    (dialogClose)="onDialogClose($event)">
+</app-login>
+<app-register
+    *ngIf="type === 'register'"
+    (changeType)="onChangeType($event)"
+    (dialogClose)="onDialogClose($event)">
+</app-register>
 <app-account *ngIf="type === 'user'"></app-account>
