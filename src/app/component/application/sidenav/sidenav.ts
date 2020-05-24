@@ -10,7 +10,7 @@ import { UserService } from 'src/app/service/UserService';
 export class Sidenav {
   @ViewChild(MatSidenav, {static: true}) snav: MatSidenav;
 
-  constructor(private userService: UserService){}
+  constructor(public userService: UserService){}
 
   isSideNavActive(): boolean {
     return this.snav.opened;
