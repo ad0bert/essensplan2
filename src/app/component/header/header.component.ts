@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
-import { UserComponent } from '../application/user/user.component';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/UserService';
 
@@ -11,24 +9,16 @@ import { UserService } from 'src/app/service/UserService';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private userService: UserService, private dialog: MatDialog, private router: Router) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
 
   user(type: string): void {
-    const userDialog = this.dialog.open(
-      UserComponent,
-      {
-        width: '512px',
-        disableClose: false,
-        hasBackdrop: true,
-        data: type
-      }
-    );
+    const userDialog = this.userService.openUserDialog(type);
     userDialog.afterClosed()
       .subscribe(value => {
-        console.log(value);
+        // console.log(value);
       });
   }
 

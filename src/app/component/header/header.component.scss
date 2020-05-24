@@ -1,8 +1,11 @@
+@import './../../../colors.scss';
+
 .header-layout {
   width: 100%
 }
 
 .login-layout {
+  padding-top: 0.1em;
   text-align: center;
   right: 0;
   position: absolute;
@@ -10,16 +13,19 @@
 }
 
 .logo-container {
+  height: 0.5em;
+  background-color: $highlight-color;
   text-align: center;
   position: fixed;
   padding-top: 2em;
   z-index: 0;
   width: 100%;
-  cursor: pointer;
 }
 
 .logo-style {
   width: 40%;
+  padding-top: 2.5em;
+  cursor: pointer;
 }
 
 .no-background {

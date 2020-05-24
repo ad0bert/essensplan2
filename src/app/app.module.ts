@@ -4,14 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatDialogModule, MatDividerModule } from '@angular/material'
+import { MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatDialogModule, MatDividerModule, MatSidenavModule, MatToolbarModule, MatListModule, MatCheckboxModule } from '@angular/material'
 
 import { FlexLayoutModule } from '@angular/flex-layout'
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas, faSearch, faUser, faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import { fas, faSearch, faUser, faAngleRight, faAngleLeft, faCalendarWeek, faInfo, faAt } from '@fortawesome/free-solid-svg-icons';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { SearchbarComponent } from './component/application/searchbar/searchbar.component';
@@ -26,8 +26,9 @@ import { AccountComponent } from './component/application/user/account/account.c
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { Sidenav } from './component/application/sidenav/sidenav';
 
-library.add(fas, faSearch, faUser, faAngleLeft, faAngleRight);
+library.add(fas, faSearch, faUser, faAngleLeft, faAngleRight, faCalendarWeek, faInfo, faAt);
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ library.add(fas, faSearch, faUser, faAngleLeft, faAngleRight);
     LoginComponent,
     RegisterComponent,
     UserComponent,
+    Sidenav,
     AccountComponent
   ],
   imports: [
@@ -53,7 +55,11 @@ library.add(fas, faSearch, faUser, faAngleLeft, faAngleRight);
     FlexLayoutModule,
     FontAwesomeModule,
     MatCardModule,
+    MatListModule,
     MatDividerModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatCheckboxModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,

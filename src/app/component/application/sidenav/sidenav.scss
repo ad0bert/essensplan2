@@ -1,0 +1,40 @@
+@import './../../../../colors.scss';
+
+.nav-container {
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+  
+.nav-button {
+    position: fixed;
+    z-index: 2;
+}
+  
+.sidenav-container {
+    flex: 1;
+}
+  
+.mat-sidenav-container {
+    margin-top: 2.5em;
+}
+
+.mat-sidenav {
+    background-color: $highlight-color;
+}
+
+.mat-list-item {
+    color: $font-color;
+}
+
+.mat-drawer-container {
+    background-color: transparent;
+}
+
+fa-icon {
+    width: 1em;
+    text-align: center;
+}

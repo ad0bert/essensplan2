@@ -1,0 +1,17 @@
+<div class="nav-container" [ngStyle]="{'position': isSideNavActive() ? 'absolute' : 'unset', 'height': isSideNavActive() ? 'auto' : '0'}">
+    <div class="nav-button">
+        <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    </div>
+    <mat-sidenav-container class="sidenav-container">
+      <mat-sidenav #snav>
+        <mat-nav-list>
+            <a (click)="snav.toggle()" mat-list-item routerLink="/dashboard"><fa-icon [icon]="['fas', 'search']"></fa-icon>&nbsp;| Dashboard</a>
+            <a (click)="snav.toggle()" mat-list-item routerLink="/cards"><fa-icon [icon]="['fas', 'calendar-week']"></fa-icon>&nbsp;| Week Planer</a>
+            <a (click)="snav.toggle(); userService.openUserDialog()" mat-list-item><fa-icon [icon]="['fas', 'user']"></fa-icon>&nbsp;| Your Profile</a>
+            <mat-divider></mat-divider>
+            <a (click)="snav.toggle()" mat-list-item routerLink="/about"><fa-icon [icon]="['fas', 'info']"></fa-icon>&nbsp;| About</a>
+            <a (click)="snav.toggle()" mat-list-item routerLink="/contact"><fa-icon [icon]="['fas', 'at']"></fa-icon>&nbsp;| Contact</a>
+        </mat-nav-list>
+      </mat-sidenav>
+    </mat-sidenav-container>
+  </div>
