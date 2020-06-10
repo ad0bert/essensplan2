@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as moment from 'moment/moment.js';
 import { SignInForm, UserApiImplService, SignUpForm } from '../generated';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { UserComponent } from '../component/application/user/user.component';
 
 @Injectable({
