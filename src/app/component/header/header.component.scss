@@ -14,7 +14,7 @@
 
 .logo-container {
   height: 0.5em;
-  background-color: $highlight-color;
+  background-color: $card-color;
   text-align: center;
   position: fixed;
   padding-top: 2em;
@@ -23,9 +23,9 @@
 }
 
 .logo-style {
-  width: 40%;
-  padding-top: 2.5em;
+  margin-top: -0.5em;
   cursor: pointer;
+  height: 10000%;
 }
 
 .no-background {

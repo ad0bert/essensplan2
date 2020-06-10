@@ -1,0 +1,16 @@
+.about-container {
+    margin-top: 2.5em;
+    background: azure;
+    max-height:inherit;
+    overflow-y:auto;
+    position: fixed;
+    min-height: calc(100% - 6em) !important;
+    height: calc(100% - 6em) !important;
+}
+
+.style-container {
+    margin-left: 5%;
+    padding-right: 5%;
+    max-height: 100%;
+    overflow-y: scroll;
+}

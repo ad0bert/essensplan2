@@ -27,6 +27,9 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Sidenav } from './component/application/sidenav/sidenav';
+import { ContactComponent } from './component/application/contact/contact.component';
+import { AboutComponent } from './component/application/about/about.component';
+import { RecipeComponent } from './component/application/recipe/recipe.component';
 
 library.add(fas, faSearch, faUser, faAngleLeft, faAngleRight, faCalendarWeek, faInfo, faAt);
 
@@ -36,6 +39,9 @@ library.add(fas, faSearch, faUser, faAngleLeft, faAngleRight, faCalendarWeek, fa
     HeaderComponent,
     FooterComponent,
     SearchbarComponent,
+    AboutComponent,
+    ContactComponent,
+    RecipeComponent,
     DateCardComponent,
     DateCardWrapperComponent,
     LoginComponent,
