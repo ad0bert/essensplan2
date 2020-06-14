@@ -1,10 +1,22 @@
 @import './../../../../colors.scss';
 
-.contact-container {
-    padding-left: 5%;
-    padding-right: 5%;
+.recipe-container {
+    margin-top: 2.5em;
+    background: azure;
+    max-height:inherit;
+    overflow-y:auto;
+    position: fixed;
+    min-height: calc(100% - 6em) !important;
+    height: calc(100% - 6em) !important;
 }
 
-.submit-btn {
-    background-color: $button-color;
+.style-container {
+    margin-left: 5%;
+    padding-right: 5%;
+    min-height: calc(100% - 10em);
+}
+
+.image-container {
+    max-width: 100%;
+    max-height: 20em;
 }

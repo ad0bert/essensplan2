@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -75,6 +76,8 @@ library.add(fas, faSearch, faUser, faAngleLeft, faAngleRight, faCalendarWeek, fa
     MatSidenavModule,
     MatToolbarModule,
     MatCheckboxModule,
+    MatChipsModule,
+    MatListModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,

@@ -1,23 +1,96 @@
-<div class="contact-container" fxLayout="row wrap" fxLayoutAlign="center center" fxFlexFill>
-    <mat-card fxFlex fxLayout="row wrap" fxLayoutAlign="center center">
-    <h1 class="h1-style" fxFlex="100">Contact</h1>
-    <form [formGroup]="contactForm" fxFlex="100" fxLayout="row wrap" (submit)="onSubmit($event)">
-        <mat-form-field fxFlex="100">
-            <input formControlName="email" matInput placeholder="Your E-Mail" value="">
-        </mat-form-field>
-        <mat-form-field fxFlex="100">
-            <input formControlName="subject" matInput placeholder="Subject" value="">
-        </mat-form-field>
-        <mat-form-field fxFlex="100">
-            <textarea formControlName="textarea" matInput placeholder="Message" value=""></textarea>
-        </mat-form-field>
-        <p>
-            The sent data will only be processed for the purpose of processing your request.<br>
-            You can find further information in our <a [routerLink]="['/about']">privacy policy</a>.
-        </p>
-        <div fxFlex="100">
-            <button class="submit-btn" mat-raised-button>Submit</button>
+<div class="recipe-container" fxFlexFill>
+    <div class="style-container" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="0.5em">
+        <h1 class="h1-style" fxFlex="100">Erdapfelstrudel</h1>
+        <div fxFlex="100">demo recipe from: <a href="https://www.sat1.at/tv/das-grosse-backen/rezepte/biancas-erdapfelstrudel">www.sat1.at</a></div>
+        <div fxFlex="100" fxFlexFill>
+            <mat-card fxLayoutAlign="center center">
+                <img class="image-container"
+                    src="https://i3-img.sat1.de/pis/ezone/1578qgELB38wdEB0AB1fHPDQCtTDCJ4UYl_Ic-IXCoYylZ0mXauk1M9wuU4rv5_rLEYRvbq7E9XZCtzWfxNXrlvcbWbUxbpAvVMfjlHNRdLVfQRcOwy-LwZmas8BwUPtr8CfwSlioPQqig0Rqbab0f2luS-43ZUYi4e004oXjiz-OqRJHjtNJg8RsWdMXEzn2IpgH7leyW4Zh_iURyfEG8Y94TYgorOQle3LojwCtKS2/profile:mag-996x562">
+            </mat-card>
         </div>
-    </form>
-</mat-card>
+        <div fxFlex="100" fxFlexFill>
+            <mat-card>
+                <p><b>Backtemperatur:</b> 200°C Ober-/Unterhitze</p>
+                <div class="ad-slot ad-inread1 trackable">
+                    <div>
+                        <div id="ad-inread1"></div>
+                    </div>
+                    <div id="71M_inreadads"></div>
+                </div>
+                <div class="ad-slot ad-minread1 trackable">
+                    <div>
+                        <div id="ad-minread1"></div>
+                    </div>
+                    <div id="71M_inreadads"></div>
+                </div>
+                <p><b>Backzeit:</b> 35-40 Minuten</p>
+                <p><b>Backform: </b>Backblech</p>
+            </mat-card>
+        </div>
+        <div fxFlex="100" fxFlexFill>
+            <mat-card>
+                <mat-chip-list>
+                    <mat-chip>Vegan</mat-chip>
+                    <mat-chip>Gesund</mat-chip>
+                    <mat-chip>Herzhaft</mat-chip>
+                    <mat-chip>Hauptgericht</mat-chip>
+                </mat-chip-list>
+            </mat-card>
+        </div>
+        <div fxFlex="100" fxFlexFill>
+            <mat-card>
+                Incredience for 4 persons
+                <mat-list>
+                    <mat-list-item>
+                        <p>1 STRUDELTEIG</p>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <p>300 g Mehl</p>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <p>150 g lauwarmes Wasser</p>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <p>40 ml Sonnenblumenöl</p>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card>
+        </div>
+        <div fxFlex="100" fxFlexFill>
+            <mat-card>
+                <div class="formatted-text ">
+                    <h2><b>Für den Strudelteig:</b></h2>
+                    <p>Das Mehl, das Wasser, das Salz und das Öl zusammen mit einem Eigelb und einem Schuss Essig in
+                        einer Küchenmaschine miteinander vermengen. Anschließend den Teig mit der Hand weiterkneten, bis
+                        er eine schöne, geschmeidige Konsistenz hat. Anschließend in Frischhaltefolie einwickeln und bei
+                        normaler Zimmertemperatur mindestens eine halbe Stunde ruhen lassen.</p>
+                    <h2><b>Für die Kartoffel-Füllung:</b></h2>
+                    <p>Die Kartoffeln in feine Scheiben schneiden und kochen. Den Speck und die Zwiebel im heißen Öl
+                        anrösten. Die Eier trennen. Den Sauerrahm und die Crème Fraîche mit dem Eigelb, dem Knoblauch,
+                        der gehackten Petersilie und den Gewürzen verrühren. Das Eiweiß aufschlagen und beide Massen
+                        vorsichtig unter die gekochten Kartoffeln heben.</p>
+                    <h2><b>Für den Dip:</b></h2>
+                    <p>Die Schlagsahne, den Frischkäse, das Zwiebelpulver, das Mark einer halben Vanilleschote und das
+                        Salz miteinander zu einer cremigen Masse vermengen.</p>
+                    <h2><b>Fertigstellung:</b></h2>
+                    <p>Den gekühlten Strudelteig auf einem Strudeltuch hauchdünn ausziehen und immer wieder mit Mehl
+                        bestäuben.</p>
+                    <p>Die Füllung auf den Teig geben und mit dem Strudeltuch vorsichtig einrollen. Zum Schluss den Teig
+                        mit der Butter bestreichen und auf mittlerer Schiene ca. 35 – 40 Min. goldbraun backen. Danach
+                        den Strudel mit einem Mix aus Puderzucker und Zwiebelpulver bestäuben.</p>
+                </div>
+            </mat-card>
+        </div>
+        <div fxFlex="100" fxFlexFill>
+            <mat-card>
+                Comments
+                <mat-card>
+                    User A: Sehr lecker
+                </mat-card>
+                <mat-card>
+                    User B: Sehr Sehr lecker
+                </mat-card>
+            </mat-card>
+        </div>
+    </div>
 </div>

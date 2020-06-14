@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, ExtraOptions } from '@angular/router';
 import { SearchbarComponent } from './component/application/searchbar/searchbar.component';
 import { DateCardWrapperComponent } from './component/application/date-card-wrapper/date-card-wrapper.component';
 import { ContactComponent } from './component/application/contact/contact.component';
@@ -16,8 +16,14 @@ const routes: Routes = [
   { path: '**', redirectTo: '/dashboard', pathMatch: 'full' }
 ];
 
+const routerOptions: ExtraOptions = {
+  scrollPositionRestoration: 'enabled',
+  anchorScrolling: 'enabled',
+  scrollOffset: [0, 64],
+};
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, routerOptions)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
