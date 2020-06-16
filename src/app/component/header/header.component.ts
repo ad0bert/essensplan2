@@ -26,8 +26,4 @@ export class HeaderComponent implements OnInit {
     return this.userService.isLoggedIn();
   }
 
-  toDashboard(): void {
-    this.router.navigate(['/dashboard']);
-  }
-
 }

@@ -33,7 +33,7 @@ import { LoginComponent } from './component/application/user/login/login.compone
 import { RegisterComponent } from './component/application/user/register/register.component';
 import { UserComponent } from './component/application/user/user.component';
 import { AccountComponent } from './component/application/user/account/account.component';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Sidenav } from './component/application/sidenav/sidenav';
@@ -87,7 +87,7 @@ library.add(fas, faSearch, faUser, faAngleLeft, faAngleRight, faCalendarWeek, fa
     UserComponent
   ],
   providers: [{
-    provide: LocationStrategy, useClass: HashLocationStrategy
+    provide: LocationStrategy, useClass: PathLocationStrategy
   }],
   bootstrap: [AppComponent]
 })

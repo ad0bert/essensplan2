@@ -17,9 +17,10 @@ const routes: Routes = [
 ];
 
 const routerOptions: ExtraOptions = {
+  useHash: true,
   scrollPositionRestoration: 'enabled',
+  onSameUrlNavigation: 'reload',
   anchorScrolling: 'enabled',
-  scrollOffset: [0, 64],
 };
 
 @NgModule({

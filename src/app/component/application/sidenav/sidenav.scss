@@ -38,3 +38,15 @@ fa-icon {
     width: 1em;
     text-align: center;
 }
+
+.logo-nav {
+    cursor: pointer;
+    position: absolute;
+    width: 100%;
+    text-align: -webkit-center;
+    font-size: x-large;
+    top: 0.2em;
+    font-variant: petite-caps;
+    color: $header-font-color;
+    border: none;
+}

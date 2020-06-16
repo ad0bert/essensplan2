@@ -1,6 +1,6 @@
 <div class="about-container" fxFlexFill>
     <div class="style-container">
-        <h1 class="adsimple-121340020">Imprint</h1>
+        <h1 id="top" class="adsimple-121340020">Imprint</h1>
         <p class="adsimple-121340020">Information in accordance with §5 of the E-Commerce Act, §14 of the
             Unternehmensgesetzbuch, §63 of the Commercial Code and disclosure requirements under §25 of the Media Act.
         </p>
@@ -8,7 +8,7 @@
         <p>Peter Ortner</p>
         <p class="adsimple-121340020">Eichenstraße 9, Flat 12c, <br />1120 Vienna, <br />Austria</p>
         <p class="adsimple-121340020">
-            <strong>Email:</strong> <a href="mailto:info@essensplan.at">info@essensplan.at</a>
+            <strong>Email:&nbsp;</strong> <a href="mailto:info@essensplan.at">info@essensplan.at</a>
         </p>
         <p style="margin-top:15px;">Source: Created with the Impressum Generator by <a
                 href="https://www.adsimple.at/blog-marketing/" title="AdSimple® Blog Marketing" rel="follow"
@@ -29,7 +29,7 @@
         <h2>Table of Contents</h2>
         <ul>
             <li>
-                <a routerLink="." fragment="datenschutz-en">Privacy Policy</a>
+                <a routerLink="./" fragment="datenschutz-en">Privacy Policy</a>
             </li>
             <li>
                 <a routerLink="./" fragment="automatische-datenspeicherung-en">Automatic Data Retention</a>
@@ -75,7 +75,7 @@
                 <a routerLink="./" fragment="graphics-en">Used pictures and graphics</a>
             </li>
         </ul>
-        <h2 id="datenschutz-en" class="adsimple-121340020">Privacy Policy</h2>
+        <h2 name="datenschutz-en" class="adsimple-121340020">Privacy Policy</h2>
         <p>We created this Privacy Policy (version 01.01.1970-121340020), to declare which information we collect, how
             we use data and which options the users of our website have, according to the guidelines of the <a
                 class="adsimple-121340020"
@@ -976,3 +976,7 @@
         </p>
     </div>
 </div>
+<button class="top-btn" (click)="scrollToAnchor('top')" mat-fab aria-label="Back to top">
+    <mat-icon>arrow_upward</mat-icon>
+</button>
+

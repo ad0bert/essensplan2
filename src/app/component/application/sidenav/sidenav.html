@@ -1,6 +1,8 @@
 <div class="nav-container" [ngStyle]="{'position': isSideNavActive() ? 'absolute' : 'unset', 'height': isSideNavActive() ? 'auto' : '0'}">
     <div class="nav-button">
-        <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+        <button mat-icon-button (click)="snav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
     </div>
     <mat-sidenav-container class="sidenav-container">
       <mat-sidenav #snav>
@@ -15,3 +17,4 @@
       </mat-sidenav>
     </mat-sidenav-container>
   </div>
+  <div class="logo-nav"><span routerLink="/dashboard">Essensplan</span></div>
