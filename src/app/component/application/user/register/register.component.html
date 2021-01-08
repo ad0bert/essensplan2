@@ -14,7 +14,7 @@
             <input formControlName="rePassword" type="password" matInput placeholder="Confirm Password">
         </mat-form-field>
         <div>
-            <mat-checkbox color="primary"></mat-checkbox>
+            <mat-checkbox color="primary" formControlName="checkbox"></mat-checkbox>
             <span style="font-size: small;">
                 &nbsp;&nbsp;&nbsp;I have read and accept the <a (click)="dialogClose.emit(true)" routerLink="/about">terms and conditions</a>
             </span>
@@ -23,7 +23,7 @@
             <div fxFlex fxLayoutAlign="left end">
                 <a class="change-ref" (click)="changeType.emit('login')">Already have an account?</a>
             </div>
-            <button class="register-btn" mat-raised-button>Register</button>
+            <button [disabled]="this.registerForm.invalid" class="register-btn" mat-raised-button>Register</button>
         </div>
     </form>
 </div>

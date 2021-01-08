@@ -40,13 +40,25 @@ fa-icon {
 }
 
 .logo-nav {
-    cursor: pointer;
     position: absolute;
     width: 100%;
-    text-align: -webkit-center;
     font-size: x-large;
     top: 0.2em;
     font-variant: petite-caps;
     color: $header-font-color;
     border: none;
+}
+
+.logo-span {
+    cursor: pointer;
+    margin-left: 2em;
+}
+
+.u-c {
+    -webkit-transform: rotate(-45deg); 
+    position: absolute;
+    font-size: 3em;
+    left: 25%;
+    top: 45%;
+    z-index: 1;
 }

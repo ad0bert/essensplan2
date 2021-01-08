@@ -1,5 +1,5 @@
 <div class="contact-container" fxLayout="row wrap" fxLayoutAlign="center center" fxFlexFill>
-    <mat-card fxFlex fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card class="contact-card" fxFlex fxLayout="row wrap" fxLayoutAlign="center center">
     <h1 class="h1-style" fxFlex="100">Contact</h1>
     <form [formGroup]="contactForm" fxFlex="100" fxLayout="row wrap" (submit)="onSubmit($event)">
         <mat-form-field fxFlex="100">
@@ -11,12 +11,12 @@
         <mat-form-field fxFlex="100">
             <textarea formControlName="textarea" matInput placeholder="Message" value=""></textarea>
         </mat-form-field>
-        <p>
+        <p fxFlex="90">
             The sent data will only be processed for the purpose of processing your request.<br>
             You can find further information in our <a [routerLink]="['/about']">privacy policy</a>.
         </p>
-        <div fxFlex="100">
-            <button class="submit-btn" mat-raised-button>Submit</button>
+        <div fxFlex >
+            <button [disabled]="this.contactForm.invalid" class="submit-btn" mat-raised-button>Submit</button>
         </div>
     </form>
 </mat-card>

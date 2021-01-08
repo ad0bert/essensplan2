@@ -16,10 +16,12 @@ export class RecipeComponent implements OnInit {
     textarea: ['', Validators.minLength(50)]
   });
 
+  tags: string[] = ['Vegan', 'Gesund', 'Herzhaft', 'Hauptgericht'];
+
   constructor(private readonly fb: FormBuilder, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(param => console.log(param));
+    this.route.paramMap.subscribe(param => console.log(param.get('id')));
       
   }
 

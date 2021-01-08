@@ -128,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "essensplan"
+  "defaultProject": "essensplan",
+  "cli": {
+    "analytics": false
+  }
 }

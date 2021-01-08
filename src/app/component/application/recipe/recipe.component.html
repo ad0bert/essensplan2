@@ -1,7 +1,29 @@
 <div class="recipe-container" fxFlexFill>
     <div class="style-container" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="0.5em">
         <h1 class="h1-style" fxFlex="100">Erdapfelstrudel</h1>
-        <div fxFlex="100">demo recipe from: <a href="https://www.sat1.at/tv/das-grosse-backen/rezepte/biancas-erdapfelstrudel">www.sat1.at</a></div>
+        <div class="float-btns">
+            <button mat-icon-button matTooltip="edit page" (click)="$event.stopPropagation()">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button matTooltip="show or create copies of this page" (click)="$event.stopPropagation()">
+                <mat-icon>file_copy</mat-icon>
+            </button>
+            <button mat-icon-button matTooltip="add to favorits" (click)="$event.stopPropagation()">
+                <mat-icon>favorite_border</mat-icon>
+            </button>
+            <div fxFlex fxLayoutAlign="center center" fxLayoutGap="0.5em"><span>1337</span>
+                <div fxFlex="1" fxLayout="column">
+                    <button class="mat-icon-button-custom" mat-icon-button (click)="$event.stopPropagation()">
+                        <mat-icon class="mat-icon-custom">add</mat-icon>
+                    </button>
+                    <button class="mat-icon-button-custom" mat-icon-button (click)="$event.stopPropagation()">
+                        <mat-icon class="mat-icon-custom">remove</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div fxFlex="100">demo recipe from: <a
+                href="https://www.sat1.at/tv/das-grosse-backen/rezepte/biancas-erdapfelstrudel">www.sat1.at</a></div>
         <div fxFlex="100" fxFlexFill>
             <mat-card fxLayoutAlign="center center">
                 <img class="image-container"
@@ -30,10 +52,19 @@
         <div fxFlex="100" fxFlexFill>
             <mat-card>
                 <mat-chip-list>
-                    <mat-chip>Vegan</mat-chip>
-                    <mat-chip>Gesund</mat-chip>
-                    <mat-chip>Herzhaft</mat-chip>
-                    <mat-chip>Hauptgericht</mat-chip>
+                    <mat-chip *ngFor="let tag of this.tags" selectable="false">
+                        <div fxLayout="row" fxLayoutAlign="space-around center">
+                            {{tag}}&nbsp;
+
+                            <button mat-icon-button class="mat-icon-button-custom" (click)="$event.stopPropagation()">
+                                <mat-icon class="mat-icon-custom">add</mat-icon>
+                            </button>
+                            <button mat-icon-button class="mat-icon-button-custom" (click)="$event.stopPropagation()">
+                                <mat-icon class="mat-icon-custom">remove</mat-icon>
+                            </button>
+                        </div>
+
+                    </mat-chip>
                 </mat-chip-list>
             </mat-card>
         </div>
@@ -82,13 +113,55 @@
             </mat-card>
         </div>
         <div fxFlex="100" fxFlexFill>
-            <mat-card>
-                Comments
-                <mat-card>
-                    User A: Sehr lecker
+            <mat-card fxLayout="column" fxLayoutGap="1em">
+                <span>
+                    Comments
+                </span>
+                <mat-card fxFlex fxLayout="row" fxLayoutGap="1em">
+                    <div fxLayout="row">
+                        <div fxFlex fxLayout="column">
+                            <button class="mat-icon-button-custom" mat-icon-button (click)="$event.stopPropagation()">
+                                <mat-icon class="mat-icon-custom">add</mat-icon>
+                            </button>
+                            <button class="mat-icon-button-custom" mat-icon-button (click)="$event.stopPropagation()">
+                                <mat-icon class="mat-icon-custom">remove</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <div fxFlex fxLayout="column">
+                        <span fxFlex>
+                            Sehr lecker
+                        </span>
+                        <span class="comment-footer" fxFlex>
+                            User A
+                        </span>
+                    </div>
                 </mat-card>
-                <mat-card>
-                    User B: Sehr Sehr lecker
+                <mat-card fxFlex fxLayout="row" fxLayoutGap="1em">
+                    <div fxLayout="row">
+                        <div fxFlex fxLayout="column">
+                            <button class="mat-icon-button-custom" mat-icon-button (click)="$event.stopPropagation()">
+                                <mat-icon class="mat-icon-custom">add</mat-icon>
+                            </button>
+                            <button class="mat-icon-button-custom" mat-icon-button (click)="$event.stopPropagation()">
+                                <mat-icon class="mat-icon-custom">remove</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <div fxFlex fxLayout="column">
+                        <span fxFlex>
+                            Sehr Sehr lecker
+                        </span>
+                        <span class="comment-footer" fxFlex>
+                            User B
+                        </span>
+                    </div>
+                </mat-card>
+                <mat-card fxLayout="column">
+                    <mat-form-field>
+                        <textarea matInput placeholder="Add comment" value=""></textarea>
+                    </mat-form-field>
+                    <button mat-raised-button class="submit-btn">Submit</button>
                 </mat-card>
             </mat-card>
         </div>

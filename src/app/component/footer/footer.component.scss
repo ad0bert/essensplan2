@@ -1,5 +1,11 @@
+@import "../../../colors.scss";
+
 .footer-container {
   text-align: center;
+  background-color: $footer-color;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 .link-style {

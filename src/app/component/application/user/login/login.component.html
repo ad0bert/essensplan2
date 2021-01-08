@@ -11,7 +11,7 @@
             <div fxFlex fxLayoutAlign="left end">
                 <a class="change-ref" (click)="changeType.emit('register')">Don't have an account?</a>
             </div>
-            <button class="login-btn" mat-raised-button>Login</button>
+            <button [disabled]="this.loginForm.invalid" class="login-btn" mat-raised-button>Login</button>
         </div>
     </form>
 </div>

@@ -9,9 +9,9 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class ContactComponent implements OnInit {
 
   contactForm = this.fb.group({
-    email: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
     subject: ['', Validators.required],
-    textarea: ['', Validators.minLength(50)]
+    textarea: ['', Validators.required]
   });
 
   constructor(private readonly fb: FormBuilder) { }
