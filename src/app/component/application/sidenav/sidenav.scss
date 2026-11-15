@@ -1,64 +1,68 @@
-@import './../../../../colors.scss';
+@use 'colors' as *;
 
 .nav-container {
-    display: flex;
-    flex-direction: column;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+
+  &.nav-open {
+    position: absolute;
+    height: auto;
+    z-index: 3;
+  }
 }
-  
+
 .nav-button {
-    position: fixed;
-    z-index: 2;
+  position: fixed;
+  z-index: 4;
 }
-  
+
 .sidenav-container {
-    flex: 1;
-}
-  
-.mat-sidenav-container {
-    margin-top: 2.5em;
+  flex: 1;
+  margin-top: 2.5em;
+  background-color: transparent;
 }
 
 .mat-sidenav {
-    background-color: $card-color;
+  background-color: $card-color;
 }
 
-.mat-list-item {
-    color: $font-color;
+.mat-mdc-list-item {
+  --mat-list-list-item-label-text-color: #{$font-color};
+  --mat-list-list-item-leading-icon-color: #{$font-color};
 }
 
-.mat-drawer-container {
-    background-color: transparent;
-}
-
-fa-icon {
-    width: 1em;
-    text-align: center;
+.active-link {
+  font-weight: 500;
 }
 
 .logo-nav {
-    position: absolute;
-    width: 100%;
-    font-size: x-large;
-    top: 0.2em;
-    font-variant: petite-caps;
-    color: $header-font-color;
-    border: none;
+  position: absolute;
+  width: 100%;
+  font-size: x-large;
+  top: 0.2em;
+  font-variant: petite-caps;
+  pointer-events: none;
 }
 
 .logo-span {
-    cursor: pointer;
-    margin-left: 2em;
+  cursor: pointer;
+  margin-left: 2em;
+  color: $header-font-color;
+  text-decoration: none;
+  pointer-events: auto;
 }
 
 .u-c {
-    -webkit-transform: rotate(-45deg); 
-    position: absolute;
-    font-size: 3em;
-    left: 25%;
-    top: 45%;
-    z-index: 1;
+  transform: rotate(-45deg);
+  position: fixed;
+  font-size: 3em;
+  left: 25%;
+  top: 45%;
+  z-index: 1;
+  pointer-events: none;
 }

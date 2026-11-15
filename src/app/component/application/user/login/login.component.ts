@@ -1,50 +1,53 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { UserService } from 'src/app/service/UserService';
+import { Component, inject, output, signal } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
+import { UserService } from '../../../../service/UserService';
+import type { UserDialogType } from '../user.component';
 
 @Component({
   selector: 'app-login',
+  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrl: './login.component.scss',
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
+  private readonly fb = inject(FormBuilder);
+  private readonly userService = inject(UserService);
 
-  @Output()
-  changeType = new EventEmitter<string>();
+  readonly changeType = output<UserDialogType>();
+  readonly dialogClose = output<void>();
 
-  @Output()
-  dialogClose = new EventEmitter<boolean>();
+  protected readonly submitting = signal(false);
+  protected readonly errorMessage = signal<string | null>(null);
 
-  loginForm = this.fb.group({
+  protected readonly loginForm = this.fb.nonNullable.group({
     email: ['', Validators.required],
     password: ['', Validators.required],
   });
 
-  constructor(private readonly fb: FormBuilder,
-    private readonly userService: UserService
-) { }
-
-  ngOnInit() {
-  }
-
-  onSubmit(event: Event): void {
-    if (this.loginForm.valid) {
-      this.userService.login(this.loginForm.getRawValue())
-        .subscribe(
-          (res) => {
-            this.userService.setSession(res);
-            this.dialogClose.emit(true);
-          },
-          (error) => {
-            this.handleError(error);
-          }
-        );
+  onSubmit(): void {
+    if (this.loginForm.invalid || this.submitting()) {
+      return;
     }
+    this.submitting.set(true);
+    this.errorMessage.set(null);
+    this.userService.login(this.loginForm.getRawValue()).subscribe({
+      next: () => {
+        this.submitting.set(false);
+        this.dialogClose.emit();
+      },
+      error: (error: HttpErrorResponse) => {
+        this.submitting.set(false);
+        this.errorMessage.set(
+          error.status === 401 || error.status === 403
+            ? 'Wrong e-mail/username or password.'
+            : 'Login failed. Please try again later.',
+        );
+      },
+    });
   }
-
-  private handleError(error: HttpErrorResponse) {
-    this.loginForm.setErrors({badCredentials: true});
-  }
-
 }

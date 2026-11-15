@@ -1,14 +1,25 @@
-.date-card-wrapper {
-    height: 100%;
-    position: absolute;
-    overflow: auto;
+:host {
+  display: block;
+  height: 100%;
+}
+
+.week {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 0.25em;
 }
 
 .calendar-container {
-    max-height: 40%;
-    overflow-x: auto;
+  flex: 1 1 0%;
+  min-width: 0;
+  display: flex;
+  gap: 1em;
+  overflow-x: auto;
+  padding: 0.5em 0.25em;
 }
 
 app-date-card {
-    min-width: 12em;
+  flex: 1 1 0%;
+  min-width: 12em;
 }

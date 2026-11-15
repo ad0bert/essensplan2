@@ -1,0 +1,20 @@
+{
+  "$schema": "./node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+  "spaces": 2,
+  "generator-cli": {
+    "version": "7.27.0",
+    "generators": {
+      "essensplan-api": {
+        "generatorName": "typescript-angular",
+        "inputSpec": "openapi.json",
+        "output": "src/app/generated",
+        "additionalProperties": {
+          "ngVersion": "22.0.0",
+          "providedInRoot": true,
+          "supportsES6": true,
+          "stringEnums": true
+        }
+      }
+    }
+  }
+}

@@ -1,25 +1,38 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
+import { signal } from '@angular/core';
 
+import { UserService } from '../../service/UserService';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
-    })
-    .compileComponents();
-  }));
+  const loggedIn = signal(false);
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    loggedIn.set(false);
+    TestBed.configureTestingModule({
+      providers: [
+        {
+          provide: UserService,
+          useValue: { isLoggedIn: () => loggedIn(), userName: () => 'peter' },
+        },
+      ],
+    });
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('offers login and register while logged out', async () => {
+    const fixture = TestBed.createComponent(HeaderComponent);
+    await fixture.whenStable();
+    const text = (fixture.nativeElement as HTMLElement).textContent;
+    expect(text).toContain('Login');
+    expect(text).toContain('Register');
+  });
+
+  it('shows the user name while logged in', async () => {
+    loggedIn.set(true);
+    const fixture = TestBed.createComponent(HeaderComponent);
+    await fixture.whenStable();
+    const text = (fixture.nativeElement as HTMLElement).textContent;
+    expect(text).toContain('peter');
+    expect(text).not.toContain('Register');
   });
 });

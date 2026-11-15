@@ -1,14 +1,25 @@
-@import './../../../../colors.scss';
+@use 'colors' as *;
 
 .contact-container {
-    padding-left: 5%;
-    padding-right: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  padding: 0 5%;
+  box-sizing: border-box;
 }
 
 .contact-card {
-    max-width: 50em;
+  flex: 1 1 auto;
+  max-width: 50em;
+  padding: 1em 1.5em;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
 }
 
 .submit-btn {
-    background-color: $button-color;
+  background-color: $button-color;
 }

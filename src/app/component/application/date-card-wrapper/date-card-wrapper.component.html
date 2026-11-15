@@ -1,21 +1,20 @@
-<div fxLayout="row wrap" fxLayoutAlign="center center" fxFlexFill>
+<div class="week">
+  <button mat-icon-button aria-label="Previous week" (click)="fillWeekFromNow(-1)">
+    <mat-icon>arrow_back_ios</mat-icon>
+  </button>
 
-    <div fxFlex="2.5em">
-        <button mat-icon-button color="primary" (click)="fillWeekFromNow(-1)">
-            <mat-icon>arrow_back_ios</mat-icon>
-        </button>
-    </div>
+  <div class="calendar-container">
+    @for (card of dateCards(); track card.date.getTime(); let i = $index) {
+      <app-date-card
+        [dateCard]="card"
+        [selected]="selectedCard() === i"
+        (click)="selectedCard.set(i)"
+      >
+      </app-date-card>
+    }
+  </div>
 
-    <div class="calendar-container" fxFlex fxLayout="row" fxLayoutGap="1em">
-        <app-date-card *ngFor="let card of dateCards; let i = index" (click)="selectedCard = i" [dateCard]="card" fxFlex
-            [selected]="selectedCard === i">
-        </app-date-card>
-    </div>
-
-    <div fxFlex="2.5em">
-        <button mat-icon-button color="primary" (click)="fillWeekFromNow(1)">
-            <mat-icon>arrow_forward_ios</mat-icon>
-        </button>
-    </div>
-
+  <button mat-icon-button aria-label="Next week" (click)="fillWeekFromNow(1)">
+    <mat-icon>arrow_forward_ios</mat-icon>
+  </button>
 </div>
