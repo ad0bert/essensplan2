@@ -1,29 +1,55 @@
-<div fxLayout="row wrap" fxLayoutAlign="center center" fxFlexFill>
-    <h1 class="h1-style" fxFlex="100">Register</h1>
-    <form [formGroup]="registerForm" fxFlex="100" fxLayout="row wrap" (submit)="onSubmit($event)">
-        <mat-form-field fxFlex="100">
-            <input formControlName="username" matInput placeholder="Username">
-        </mat-form-field>
-        <mat-form-field fxFlex="100">
-            <input formControlName="email" matInput placeholder="E-Mail">
-        </mat-form-field>
-        <mat-form-field fxFlex="100">
-            <input formControlName="password" type="password" matInput placeholder="Password">
-        </mat-form-field>
-        <mat-form-field fxFlex="100">
-            <input formControlName="rePassword" type="password" matInput placeholder="Confirm Password">
-        </mat-form-field>
-        <div>
-            <mat-checkbox color="primary" formControlName="checkbox"></mat-checkbox>
-            <span style="font-size: small;">
-                &nbsp;&nbsp;&nbsp;I have read and accept the <a (click)="dialogClose.emit(true)" routerLink="/about">terms and conditions</a>
-            </span>
-        </div>
-        <div fxFlex="100">
-            <div fxFlex fxLayoutAlign="left end">
-                <a class="change-ref" (click)="changeType.emit('login')">Already have an account?</a>
-            </div>
-            <button [disabled]="this.registerForm.invalid" class="register-btn" mat-raised-button>Register</button>
-        </div>
-    </form>
-</div>
+<h1 class="h1-style">Register</h1>
+<form class="user-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input formControlName="username" matInput autocomplete="username" />
+    @if (registerForm.controls.username.hasError('alreadyTaken')) {
+      <mat-error>Username or e-mail is already taken.</mat-error>
+    } @else if (registerForm.controls.username.hasError('minlength')) {
+      <mat-error>At least 3 characters.</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>E-Mail</mat-label>
+    <input formControlName="email" type="email" matInput autocomplete="email" />
+    @if (registerForm.controls.email.hasError('email')) {
+      <mat-error>Please enter a valid e-mail address.</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input formControlName="password" type="password" matInput autocomplete="new-password" />
+    @if (registerForm.controls.password.hasError('minlength')) {
+      <mat-error>At least 8 characters.</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Confirm Password</mat-label>
+    <input formControlName="rePassword" type="password" matInput autocomplete="new-password" />
+    @if (registerForm.controls.rePassword.hasError('mustMatch')) {
+      <mat-error>Passwords do not match.</mat-error>
+    }
+  </mat-form-field>
+  <mat-checkbox color="primary" formControlName="checkbox">
+    <span class="terms">
+      I have read and accept the
+      <a routerLink="/about" (click)="dialogClose.emit()">terms and conditions</a>
+    </span>
+  </mat-checkbox>
+  @if (errorMessage(); as message) {
+    <p class="form-error" role="alert">{{ message }}</p>
+  }
+  <div class="form-footer">
+    <button type="button" class="change-ref" (click)="changeType.emit('login')">
+      Already have an account?
+    </button>
+    <button
+      type="submit"
+      [disabled]="registerForm.invalid || submitting()"
+      class="register-btn"
+      mat-flat-button
+    >
+      Register
+    </button>
+  </div>
+</form>

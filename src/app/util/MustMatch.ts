@@ -1,21 +1,26 @@
-import { FormGroup } from '@angular/forms';
+import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
-// custom validator to check that two fields match
-export function MustMatch(controlName: string, matchingControlName: string) {
-    return (formGroup: FormGroup) => {
-        const control = formGroup.controls[controlName];
-        const matchingControl = formGroup.controls[matchingControlName];
-
-        if (matchingControl.errors && !matchingControl.errors.mustMatch) {
-            // return if another validator has already found an error on the matchingControl
-            return null;
-        }
-
-        // set error on matchingControl if validation fails
-        if (control.value !== matchingControl.value) {
-            matchingControl.setErrors({ mustMatch: true });
-        } else {
-            matchingControl.setErrors(null);
-        }
+/**
+ * Group validator checking that two controls hold the same value.
+ * The `mustMatch` error is set on the matching control so it can be shown next to it.
+ */
+export function MustMatch(controlName: string, matchingControlName: string): ValidatorFn {
+  return (group: AbstractControl): ValidationErrors | null => {
+    const control = group.get(controlName);
+    const matchingControl = group.get(matchingControlName);
+    if (!control || !matchingControl) {
+      return null;
     }
+
+    const otherErrors = { ...matchingControl.errors };
+    delete otherErrors['mustMatch'];
+    const hasOtherErrors = Object.keys(otherErrors).length > 0;
+
+    if (control.value !== matchingControl.value) {
+      matchingControl.setErrors({ ...otherErrors, mustMatch: true });
+      return { mustMatch: true };
+    }
+    matchingControl.setErrors(hasOtherErrors ? otherErrors : null);
+    return null;
+  };
 }

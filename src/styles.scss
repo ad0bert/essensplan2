@@ -1,24 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
-@import "./colors.scss";
+@use '@angular/material' as mat;
+@use 'colors' as *;
+
+html {
+  color-scheme: light;
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$green-palette,
+        tertiary: mat.$orange-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+
+  @include mat.card-overrides(
+    (
+      elevated-container-color: white,
+    )
+  );
+
+  // Dialogs use the card green of the rest of the app.
+  @include mat.dialog-overrides(
+    (
+      container-color: $card-color,
+      supporting-text-color: $font-color,
+    )
+  );
+}
 
 html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
   background-color: $primary-color;
   color: $font-color;
 }
 
-.mat-dialog-container {
-  background-color: $card-color;
+.mat-mdc-dialog-surface {
   color: $font-color;
-}
-
-.mat-button-focus-overlay {
-  background-color: transparent !important;
 }
 
 .cdk-overlay-pane {

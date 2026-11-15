@@ -1,11 +1,14 @@
-<app-login
-    *ngIf="type === 'login'"
-    (changeType)="onChangeType($event)"
-    (dialogClose)="onDialogClose($event)">
-</app-login>
-<app-register
-    *ngIf="type === 'register'"
-    (changeType)="onChangeType($event)"
-    (dialogClose)="onDialogClose($event)">
-</app-register>
-<app-account *ngIf="type === 'user'"></app-account>
+@switch (type()) {
+  @case ('login') {
+    <app-login (changeType)="onChangeType($event)" (dialogClose)="onDialogClose()"></app-login>
+  }
+  @case ('register') {
+    <app-register
+      (changeType)="onChangeType($event)"
+      (dialogClose)="onDialogClose()"
+    ></app-register>
+  }
+  @default {
+    <app-account (dialogClose)="onDialogClose()"></app-account>
+  }
+}

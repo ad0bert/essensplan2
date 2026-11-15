@@ -1,11 +1,12 @@
-@import "../../../colors.scss";
+@use 'colors' as *;
 
 .footer-container {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: var(--footer-height, 2.5em);
   background-color: $footer-color;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
 }
 
 .link-style {

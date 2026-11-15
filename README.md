@@ -1,27 +1,46 @@
 # Essensplan
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
+Meal planner web app built with [Angular](https://angular.dev) 22 and Angular Material.
+
+Requires Node.js `^22.22.3 || ^24.15.0 || >=26`.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```bash
+npm install
+npm start
+```
 
-## Code scaffolding
+Open `http://localhost:4200/`. The app reloads on source changes.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The backend URL is configured per build in `src/environments/` (`apiBasePath`).
+For local development it points to `http://localhost:8080`; for offline work you can
+serve mock responses with [`@ad0bert/mockserver`](https://github.com/ad0bert/mockserver).
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```bash
+npm run build
+```
 
-## Running unit tests
+Production build output goes to `dist/essensplan/browser`. The app uses path-based
+routing, so the web server must answer unknown paths with `index.html`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Tests and linting
 
-## Running end-to-end tests
+```bash
+npm test          # unit tests (Vitest)
+npm run lint      # ESLint (angular-eslint)
+npx prettier --check .
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## API client
 
-## Further help
+`src/app/generated` is generated from `openapi.json` with OpenAPI Generator
+(`typescript-angular`); do not edit it by hand. After updating the spec, run:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```bash
+npm run generate:api
+```
+
+The generator CLI downloads its jar on first use and needs a Java runtime.

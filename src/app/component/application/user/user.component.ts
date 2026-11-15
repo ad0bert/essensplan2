@@ -1,33 +1,27 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+
+import { AccountComponent } from './account/account.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
+export type UserDialogType = 'login' | 'register' | 'user';
 
 @Component({
   selector: 'app-user',
+  imports: [LoginComponent, RegisterComponent, AccountComponent],
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  styleUrl: './user.component.scss',
 })
-export class UserComponent implements OnInit {
+export class UserComponent {
+  private readonly dialogRef = inject<MatDialogRef<UserComponent>>(MatDialogRef);
+  protected readonly type = signal<UserDialogType>(inject<UserDialogType>(MAT_DIALOG_DATA));
 
-  type: string;
-
-  constructor(
-    private dialogRef: MatDialogRef<UserComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: string
-  ) {
-    this.type = data;
+  onChangeType(type: UserDialogType): void {
+    this.type.set(type);
   }
 
-  ngOnInit() {
+  onDialogClose(): void {
+    this.dialogRef.close();
   }
-
-  onChangeType(type: string) {
-    this.type = type;
-  }
-
-  onDialogClose(doClose: boolean) {
-    if (doClose) {
-      this.dialogRef.close();
-    }
-  }
-
 }

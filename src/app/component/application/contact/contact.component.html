@@ -1,23 +1,29 @@
-<div class="contact-container" fxLayout="row wrap" fxLayoutAlign="center center" fxFlexFill>
-    <mat-card class="contact-card" fxFlex fxLayout="row wrap" fxLayoutAlign="center center">
-    <h1 class="h1-style" fxFlex="100">Contact</h1>
-    <form [formGroup]="contactForm" fxFlex="100" fxLayout="row wrap" (submit)="onSubmit($event)">
-        <mat-form-field fxFlex="100">
-            <input formControlName="email" matInput placeholder="Your E-Mail" value="">
-        </mat-form-field>
-        <mat-form-field fxFlex="100">
-            <input formControlName="subject" matInput placeholder="Subject" value="">
-        </mat-form-field>
-        <mat-form-field fxFlex="100">
-            <textarea formControlName="textarea" matInput placeholder="Message" value=""></textarea>
-        </mat-form-field>
-        <p fxFlex="90">
-            The sent data will only be processed for the purpose of processing your request.<br>
-            You can find further information in our <a [routerLink]="['/about']">privacy policy</a>.
-        </p>
-        <div fxFlex >
-            <button [disabled]="this.contactForm.invalid" class="submit-btn" mat-raised-button>Submit</button>
-        </div>
+<div class="contact-container">
+  <mat-card class="contact-card">
+    <h1 class="h1-style">Contact</h1>
+    <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>Your E-Mail</mat-label>
+        <input formControlName="email" type="email" matInput autocomplete="email" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Subject</mat-label>
+        <input formControlName="subject" matInput />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Message</mat-label>
+        <textarea formControlName="textarea" matInput rows="5"></textarea>
+      </mat-form-field>
+      <p>
+        The sent data will only be processed for the purpose of processing your request.<br />
+        You can find further information in our
+        <a routerLink="/about" fragment="datenschutz-en">privacy policy</a>.
+      </p>
+      <div>
+        <button type="submit" [disabled]="contactForm.invalid" class="submit-btn" mat-flat-button>
+          Submit
+        </button>
+      </div>
     </form>
-</mat-card>
+  </mat-card>
 </div>

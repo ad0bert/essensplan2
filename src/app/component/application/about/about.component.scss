@@ -1,22 +1,21 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
 .about-container {
-    margin-top: 2.5em;
-    background: azure;
-    max-height:inherit;
-    overflow-y:auto;
-    position: fixed;
-    min-height: calc(100vh - 4.9em) !important;
-    height: calc(100vh - 4.9em) !important;
+  background: azure;
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
 }
 
 .style-container {
-    margin-left: 5%;
-    padding-right: 5%;
-    max-height: 100%;
-    overflow-y: scroll;
+  padding: 0 5%;
 }
 
 .top-btn {
-    position: absolute;
-    right: 3em;
-    bottom: 5em;
+  position: fixed;
+  right: 3em;
+  bottom: 5em;
 }

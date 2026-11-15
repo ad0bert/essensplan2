@@ -1,32 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { Component, input } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
+/** Demo recipe page. The content is static until recipes are served by the backend. */
 @Component({
-  selector: 'recipe-contact',
+  selector: 'app-recipe',
+  imports: [
+    MatButtonModule,
+    MatCardModule,
+    MatChipsModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatTooltipModule,
+  ],
   templateUrl: './recipe.component.html',
-  styleUrls: ['./recipe.component.scss']
+  styleUrl: './recipe.component.scss',
 })
-export class RecipeComponent implements OnInit {
+export class RecipeComponent {
+  /** Recipe id from the `recipe/:id` route (bound via the router's component input binding). */
+  readonly id = input<string>();
 
-  contactForm = this.fb.group({
-    email: ['', Validators.required],
-    subject: ['', Validators.required],
-    textarea: ['', Validators.minLength(50)]
-  });
-
-  tags: string[] = ['Vegan', 'Gesund', 'Herzhaft', 'Hauptgericht'];
-
-  constructor(private readonly fb: FormBuilder, private route: ActivatedRoute) { }
-
-  ngOnInit() {
-    this.route.paramMap.subscribe(param => console.log(param.get('id')));
-      
-  }
-
-  onSubmit(event: Event): void {
-    // TODO implement me
-  }
-
+  protected readonly tags: string[] = ['Vegan', 'Gesund', 'Herzhaft', 'Hauptgericht'];
 }

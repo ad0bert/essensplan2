@@ -1,13 +1,30 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.search-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.search-form {
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 1em;
+}
+
 .searchbox {
-    background: white;
-    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
-    box-sizing: border-box;
-    font-size: 16px;
-    line-height: 21px;
-    max-width: 584px;
-    transition: none;
-    border-radius: 22px;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: azure;
+  flex: 1 1 auto;
+  max-width: 584px;
+  box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+  border-radius: 22px;
+  overflow: hidden;
+  --mat-form-field-filled-container-color: azure;
+  --mat-form-field-filled-container-shape: 22px;
+  --mat-form-field-filled-active-indicator-height: 0;
+  --mat-form-field-filled-focus-active-indicator-height: 0;
 }

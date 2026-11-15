@@ -1,15 +1,10 @@
-@import "../../../../../colors.scss";
-
-.h1-style {
-    font-size: 1.4em;
-}
+@use 'colors' as *;
+@use 'user-form';
 
 .register-btn {
-    float: right;
-    background-color: $button-color;
+  background-color: $button-color;
 }
 
-.change-ref {
-    cursor: pointer;
-    font-size: 0.9em;
+.terms {
+  font-size: small;
 }

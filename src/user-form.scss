@@ -1,0 +1,31 @@
+// Shared layout of the login and register forms shown in the user dialog.
+.h1-style {
+  font-size: 1.4em;
+}
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 0.5em;
+}
+
+.change-ref {
+  cursor: pointer;
+  font-size: 0.9em;
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  text-decoration: underline;
+}
+
+.form-error {
+  color: #b3261e;
+  margin: 0 0 0.5em;
+}

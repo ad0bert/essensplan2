@@ -1,8 +1,13 @@
-<div fxLayout="row wrap" fxLayoutAlign="center center" fxFlexFill>
-    <form fxFlex="100" fxLayout="row" fxLayoutAlign="center center">
-        <mat-form-field class="searchbox" fxFlex>
-            <input fxFlex matInput placeholder="search for recipes">
-            <fa-icon [icon]="['fas', 'search']"></fa-icon>
-        </mat-form-field>
-    </form>
+<div class="search-page">
+  <form class="search-form" (submit)="$event.preventDefault()">
+    <mat-form-field class="searchbox" subscriptSizing="dynamic">
+      <input
+        matInput
+        type="search"
+        placeholder="search for recipes"
+        aria-label="search for recipes"
+      />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </form>
 </div>

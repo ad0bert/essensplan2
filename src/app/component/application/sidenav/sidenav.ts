@@ -1,19 +1,31 @@
-import { Component, ViewChild} from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
-import { UserService } from 'src/app/service/UserService';
+import { Component, inject } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
+import { UserDialogService } from '../../../service/UserDialogService';
 
 @Component({
   selector: 'app-sidenav',
+  imports: [
+    RouterLink,
+    RouterLinkActive,
+    MatButtonModule,
+    MatDividerModule,
+    MatIconModule,
+    MatListModule,
+    MatSidenavModule,
+  ],
   templateUrl: 'sidenav.html',
-  styleUrls: ['sidenav.scss'],
+  styleUrl: 'sidenav.scss',
 })
 export class Sidenav {
-  @ViewChild(MatSidenav, {static: true}) snav: MatSidenav;
+  private readonly userDialog = inject(UserDialogService);
 
-  constructor(public userService: UserService){}
-
-  isSideNavActive(): boolean {
-    return this.snav.opened;
+  openProfile(): void {
+    this.userDialog.open('user');
   }
-
 }

@@ -1,29 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { UserService } from 'src/app/service/UserService';
+import { Component, inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
+import { UserDialogService } from '../../service/UserDialogService';
+import { UserService } from '../../service/UserService';
+import { UserDialogType } from '../application/user/user.component';
 
 @Component({
   selector: 'app-header',
+  imports: [MatButtonModule, MatIconModule],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrl: './header.component.scss',
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
+  protected readonly userService = inject(UserService);
+  private readonly userDialog = inject(UserDialogService);
 
-  constructor(private userService: UserService, private router: Router) { }
-
-  ngOnInit() {
+  user(type: UserDialogType): void {
+    this.userDialog.open(type);
   }
-
-  user(type: string): void {
-    const userDialog = this.userService.openUserDialog(type);
-    userDialog.afterClosed()
-      .subscribe(value => {
-        // console.log(value);
-      });
-  }
-
-  isUserLoggedIn(): boolean {
-    return this.userService.isLoggedIn();
-  }
-
 }

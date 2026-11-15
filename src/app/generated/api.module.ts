@@ -3,8 +3,6 @@ import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
 
-import { UserApiImplService } from './api/userApiImpl.service';
-
 @NgModule({
   imports:      [],
   declarations: [],

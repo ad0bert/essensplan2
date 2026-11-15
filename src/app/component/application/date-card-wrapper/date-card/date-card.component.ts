@@ -1,31 +1,29 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { DateCard } from 'src/app/models/DateCard';
-import DateUtils from 'src/app/util/DateUtil';
+import { Component, computed, input } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+
+import { DateCard } from '../../../../models/DateCard';
+import DateUtils from '../../../../util/DateUtil';
 
 @Component({
   selector: 'app-date-card',
+  imports: [DatePipe, MatButtonModule, MatCardModule, MatDividerModule, MatIconModule],
   templateUrl: './date-card.component.html',
-  styleUrls: ['./date-card.component.scss']
+  styleUrl: './date-card.component.scss',
 })
-export class DateCardComponent implements OnInit {
+export class DateCardComponent {
+  readonly dateCard = input.required<DateCard>();
+  readonly selected = input(false);
 
-  @Input()
-  dateCard: DateCard;
-
-  @Input()
-  selected: boolean;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  isToday(): boolean {
-    return this.dateCard.date.getTime() === DateUtils.getToday().getTime();
-  }
+  protected readonly isToday = computed(() =>
+    DateUtils.isSameDay(this.dateCard().date, DateUtils.getToday()),
+  );
 
   addDish(): void {
-    this.dateCard.dishes.push("cat");
+    // Placeholder until dishes can be picked from the recipe search.
+    this.dateCard().dishes.push('cat');
   }
-
 }

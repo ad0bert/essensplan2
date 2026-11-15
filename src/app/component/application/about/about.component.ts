@@ -1,29 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, DestroyRef, ElementRef, afterNextRender, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-about',
+  imports: [RouterLink, MatButtonModule, MatIconModule],
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  styleUrl: './about.component.scss',
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent {
+  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
 
-  constructor(private route: ActivatedRoute) { }
-
-  ngOnInit() {
-    this.route.fragment
-    .subscribe((fragment: string) => {
-      this.scrollToAnchor(fragment);
+  constructor() {
+    const route = inject(ActivatedRoute);
+    const destroyRef = inject(DestroyRef);
+    // The page scrolls inside its own container, so the router's anchor scrolling
+    // (which scrolls the window) does not apply. Wait for the first render, then
+    // follow fragment changes.
+    afterNextRender(() => {
+      route.fragment
+        .pipe(takeUntilDestroyed(destroyRef))
+        .subscribe((fragment) => fragment && this.scrollToAnchor(fragment));
     });
   }
 
-  public scrollToAnchor(location: string, wait = 0): void {
-    const element = document.querySelector('#' + location);
-    if (element) {
-      setTimeout(() => {
-        element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
-      }, wait);
-    }
+  scrollToAnchor(id: string): void {
+    const element = this.host.nativeElement.querySelector(`[id="${CSS.escape(id)}"]`);
+    element?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
   }
-
 }

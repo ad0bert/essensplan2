@@ -1,15 +1,16 @@
-@import './../../../colors.scss';
+@use 'colors' as *;
 
 .header-layout {
-  width: 100%
+  width: 100%;
 }
 
 .login-layout {
+  display: flex;
+  align-items: center;
   padding-top: 0.1em;
-  text-align: center;
   right: 0;
   position: absolute;
-  z-index: 1;
+  z-index: 3;
 }
 
 .logo-container {
@@ -22,6 +23,7 @@
   width: 100%;
 }
 
+// The logo is intentionally taller than the bar: it is the backdrop of the pages below.
 .logo-style {
   margin-top: -0.5em;
   height: 100vh;
@@ -29,4 +31,5 @@
 
 .no-background {
   background-color: transparent !important;
+  --mat-button-text-label-text-color: #{$font-color};
 }

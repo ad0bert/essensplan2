@@ -1,22 +1,47 @@
-<div class="nav-container" [ngStyle]="{'position': isSideNavActive() ? 'absolute' : 'unset', 'height': isSideNavActive() ? 'auto' : '0'}">
-    <div class="nav-button">
-        <button mat-icon-button (click)="snav.toggle()">
-          <mat-icon>menu</mat-icon>
-        </button>
-    </div>
-    <mat-sidenav-container class="sidenav-container">
-      <mat-sidenav #snav>
-        <mat-nav-list>
-            <a (click)="snav.toggle()" mat-list-item routerLink="/dashboard"><fa-icon [icon]="['fas', 'search']"></fa-icon>&nbsp;| Dashboard</a>
-            <a (click)="snav.toggle()" mat-list-item routerLink="/cards"><fa-icon [icon]="['fas', 'calendar-week']"></fa-icon>&nbsp;| Week Planer</a>
-            <a (click)="snav.toggle(); userService.openUserDialog()" mat-list-item><fa-icon [icon]="['fas', 'user']"></fa-icon>&nbsp;| Your Profile</a>
-            <mat-divider></mat-divider>
-            <a (click)="snav.toggle()" mat-list-item routerLink="/about"><fa-icon [icon]="['fas', 'info']"></fa-icon>&nbsp;| About</a>
-            <a (click)="snav.toggle()" mat-list-item routerLink="/contact"><fa-icon [icon]="['fas', 'at']"></fa-icon>&nbsp;| Contact</a>
-        </mat-nav-list>
-      </mat-sidenav>
-    </mat-sidenav-container>
+<div class="nav-container" [class.nav-open]="snav.opened">
+  <div class="nav-button">
+    <button mat-icon-button aria-label="Toggle navigation" (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
   </div>
-  <div class="logo-nav"><span class="logo-span" routerLink="/dashboard">Essensplan</span></div>
+  <mat-sidenav-container class="sidenav-container" (backdropClick)="snav.close()">
+    <mat-sidenav #snav>
+      <mat-nav-list>
+        <a
+          mat-list-item
+          routerLink="/dashboard"
+          routerLinkActive="active-link"
+          (click)="snav.close()"
+        >
+          <mat-icon matListItemIcon>search</mat-icon>
+          <span matListItemTitle>Dashboard</span>
+        </a>
+        <a mat-list-item routerLink="/cards" routerLinkActive="active-link" (click)="snav.close()">
+          <mat-icon matListItemIcon>calendar_view_week</mat-icon>
+          <span matListItemTitle>Week Planner</span>
+        </a>
+        <a mat-list-item href="" (click)="$event.preventDefault(); snav.close(); openProfile()">
+          <mat-icon matListItemIcon>person</mat-icon>
+          <span matListItemTitle>Your Profile</span>
+        </a>
+        <mat-divider></mat-divider>
+        <a mat-list-item routerLink="/about" routerLinkActive="active-link" (click)="snav.close()">
+          <mat-icon matListItemIcon>info</mat-icon>
+          <span matListItemTitle>About</span>
+        </a>
+        <a
+          mat-list-item
+          routerLink="/contact"
+          routerLinkActive="active-link"
+          (click)="snav.close()"
+        >
+          <mat-icon matListItemIcon>alternate_email</mat-icon>
+          <span matListItemTitle>Contact</span>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+  </mat-sidenav-container>
+</div>
+<div class="logo-nav"><a class="logo-span" routerLink="/dashboard">Essensplan</a></div>
 
-  <div class="u-c">under construction</div>
+<div class="u-c" aria-hidden="true">under construction</div>

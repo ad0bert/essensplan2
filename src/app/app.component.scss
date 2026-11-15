@@ -1,10 +1,25 @@
+:host {
+  --header-height: 2.5em;
+  --footer-height: 2.5em;
+}
+
 .header {
-    position: absolute;
-    width: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.content {
+  position: fixed;
+  top: var(--header-height);
+  bottom: var(--footer-height);
+  left: 0;
+  right: 0;
+  overflow: auto;
 }
 
 .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 2;
 }

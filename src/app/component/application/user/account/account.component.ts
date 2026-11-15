@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, output } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+
+import { UserService } from '../../../../service/UserService';
 
 @Component({
   selector: 'app-account',
+  imports: [MatButtonModule],
   templateUrl: './account.component.html',
-  styleUrls: ['./account.component.scss']
+  styleUrl: './account.component.scss',
 })
-export class AccountComponent implements OnInit {
+export class AccountComponent {
+  protected readonly userService = inject(UserService);
+  readonly dialogClose = output<void>();
 
-  constructor() { }
-
-  ngOnInit() {
+  logout(): void {
+    this.userService.logout();
+    this.dialogClose.emit();
   }
-
 }

@@ -1,0 +1,14 @@
+@use 'colors' as *;
+
+.h1-style {
+  font-size: 1.4em;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.logout-btn {
+  background-color: $button-color;
+}
